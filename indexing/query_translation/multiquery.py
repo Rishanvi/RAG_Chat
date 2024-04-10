@@ -44,7 +44,7 @@ question_generation_chain= (
 )
 
 
-def get_unique_union(documents: list[list]):
+def get_docs(documents: list[list]):
     flattened_docs = [dumps(doc) for sublist in documents for doc in sublist]
     unique_docs = list(set(flattened_docs))
     print("hai")
@@ -52,7 +52,7 @@ def get_unique_union(documents: list[list]):
 
 
 
-retrieval_chain = question_generation_chain | retriver.map() | get_unique_union
+retrieval_chain = question_generation_chain | retriver.map() | get_docs
 
 
 
